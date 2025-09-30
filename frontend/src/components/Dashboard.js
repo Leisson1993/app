@@ -271,6 +271,7 @@ const Dashboard = () => {
             setShowUpload(false);
             setActiveCategory('inicio');
           }}
+          onUploadSuccess={handleUploadSuccess}
         />
       )}
     </div>
