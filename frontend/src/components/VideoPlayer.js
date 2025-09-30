@@ -43,23 +43,55 @@ const VideoPlayer = ({ content, onClose }) => {
       <div className="w-full max-w-6xl">
         {/* Video Player */}
         <div className="relative bg-black rounded-lg overflow-hidden mb-4">
-          {/* Mock Video Area */}
+          {/* Video Player Area */}
           <div 
-            className="w-full h-96 bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center cursor-pointer"
+            className="w-full h-96 bg-black relative flex items-center justify-center cursor-pointer"
             onClick={togglePlay}
             onMouseEnter={() => setShowControls(true)}
           >
-            <div className="text-center">
-              <div className="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center mb-4 mx-auto">
-                {isPlaying ? (
-                  <Pause className="w-10 h-10 text-green-500" />
-                ) : (
-                  <Play className="w-10 h-10 text-green-500" />
+            {videoUrl ? (
+              <>
+                {/* Real Video Element */}
+                <video
+                  ref={videoRef}
+                  src={videoUrl}
+                  className="w-full h-full object-contain"
+                  onTimeUpdate={(e) => setCurrentTime(e.target.currentTime)}
+                  autoPlay={isPlaying}
+                  onError={() => {
+                    console.log("Video failed to load, showing mock player");
+                  }}
+                />
+                
+                {/* Overlay when paused */}
+                {!isPlaying && (
+                  <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
+                    <div className="text-center">
+                      <div className="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center mb-4 mx-auto">
+                        <Play className="w-10 h-10 text-green-500" />
+                      </div>
+                      <h3 className="text-white text-xl font-semibold">{content.title}</h3>
+                      <p className="text-gray-400">Clique para reproduzir</p>
+                    </div>
+                  </div>
                 )}
+              </>
+            ) : (
+              /* Mock Player when no URL */
+              <div className="text-center">
+                <div className="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center mb-4 mx-auto">
+                  {isPlaying ? (
+                    <Pause className="w-10 h-10 text-green-500" />
+                  ) : (
+                    <Play className="w-10 h-10 text-green-500" />
+                  )}
+                </div>
+                <h3 className="text-white text-xl font-semibold">{content.title}</h3>
+                <p className="text-gray-400">
+                  {isPlaying ? "Reproduzindo conteúdo..." : "Preview - Clique para simular reprodução"}
+                </p>
               </div>
-              <h3 className="text-white text-xl font-semibold">{content.title}</h3>
-              <p className="text-gray-400">Reproduzindo conteúdo...</p>
-            </div>
+            )}
           </div>
 
           {/* Video Controls */}
