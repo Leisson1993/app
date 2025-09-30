@@ -139,8 +139,9 @@ const UploadModal = ({ onClose, onUploadSuccess }) => {
             <h4 className="text-green-500 font-medium mb-2">Instruções:</h4>
             <ul className="text-sm text-gray-400 space-y-1">
               <li>• O arquivo deve estar no formato JSON válido</li>
-              <li>• Deve conter informações sobre filmes, séries ou animes</li>
-              <li>• Campos obrigatórios: título, ano, tipo, gênero</li>
+              <li>• Suporte para formato completo com episódios e temporadas</li>
+              <li>• Campos obrigatórios: id, title</li>
+              <li>• Campos opcionais: synopsis, genres, seasons, details</li>
               <li>• Tamanho máximo: 10MB</li>
             </ul>
           </div>
