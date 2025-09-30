@@ -75,47 +75,87 @@ const ContentCard = ({ content, onWatch, isFavorite, onFavorite, onShowDetails }
 
         {/* Action Buttons */}
         <div className="flex items-center justify-between pt-2">
-          <Button
-            onClick={handleWatch}
-            size="sm"
-            className="flex-1 mr-2 bg-green-500 hover:bg-green-600 text-xs"
-          >
-            <Play className="w-3 h-3 mr-1" />
-            Assistir
-          </Button>
-          
-          <div className="flex space-x-1">
-            <Button
-              onClick={handleFavorite}
-              size="sm"
-              variant="ghost"
-              className={`p-1 h-8 w-8 ${
-                isFavorite 
-                  ? 'text-red-500 hover:text-red-400' 
-                  : 'text-gray-400 hover:text-white'
-              }`}
-            >
-              <Heart className={`w-4 h-4 ${isFavorite ? 'fill-current' : ''}`} />
-            </Button>
-            
-            <Button
-              onClick={handleShowDetails}
-              size="sm"
-              variant="ghost"
-              className="p-1 h-8 w-8 text-gray-400 hover:text-white"
-              title="Mais Info"
-            >
-              <Info className="w-4 h-4" />
-            </Button>
-            
-            <Button
-              size="sm"
-              variant="ghost"
-              className="p-1 h-8 w-8 text-gray-400 hover:text-white"
-            >
-              <Share2 className="w-4 h-4" />
-            </Button>
-          </div>
+          {/* For series with episodes, prioritize Info button */}
+          {content.originalData?.seasons?.length > 0 ? (
+            <>
+              <Button
+                onClick={handleShowDetails}
+                size="sm"
+                className="flex-1 mr-2 bg-blue-500 hover:bg-blue-600 text-xs"
+              >
+                <Info className="w-3 h-3 mr-1" />
+                Episódios
+              </Button>
+              <div className="flex space-x-1">
+                <Button
+                  onClick={handleWatch}
+                  size="sm"
+                  variant="ghost"
+                  className="p-1 h-8 w-8 text-green-500 hover:text-green-400"
+                  title="Assistir Primeiro Episódio"
+                >
+                  <Play className="w-4 h-4" />
+                </Button>
+                <Button
+                  onClick={handleFavorite}
+                  size="sm"
+                  variant="ghost"
+                  className={`p-1 h-8 w-8 ${
+                    isFavorite 
+                      ? 'text-red-500 hover:text-red-400' 
+                      : 'text-gray-400 hover:text-white'
+                  }`}
+                >
+                  <Heart className={`w-4 h-4 ${isFavorite ? 'fill-current' : ''}`} />
+                </Button>
+              </div>
+            </>
+          ) : (
+            /* For movies - show normal layout */
+            <>
+              <Button
+                onClick={handleWatch}
+                size="sm"
+                className="flex-1 mr-2 bg-green-500 hover:bg-green-600 text-xs"
+              >
+                <Play className="w-3 h-3 mr-1" />
+                Assistir
+              </Button>
+              
+              <div className="flex space-x-1">
+                <Button
+                  onClick={handleFavorite}
+                  size="sm"
+                  variant="ghost"
+                  className={`p-1 h-8 w-8 ${
+                    isFavorite 
+                      ? 'text-red-500 hover:text-red-400' 
+                      : 'text-gray-400 hover:text-white'
+                  }`}
+                >
+                  <Heart className={`w-4 h-4 ${isFavorite ? 'fill-current' : ''}`} />
+                </Button>
+                
+                <Button
+                  onClick={handleShowDetails}
+                  size="sm"
+                  variant="ghost"
+                  className="p-1 h-8 w-8 text-gray-400 hover:text-white"
+                  title="Mais Info"
+                >
+                  <Info className="w-4 h-4" />
+                </Button>
+                
+                <Button
+                  size="sm"
+                  variant="ghost"
+                  className="p-1 h-8 w-8 text-gray-400 hover:text-white"
+                >
+                  <Share2 className="w-4 h-4" />
+                </Button>
+              </div>
+            </>
+          )}
         </div>
       </CardContent>
     </Card>
