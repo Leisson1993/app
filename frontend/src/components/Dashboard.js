@@ -64,7 +64,8 @@ const Dashboard = () => {
   };
 
   const getFeaturedContent = () => {
-    return mockContent.find(item => item.featured);
+    const allContent = [...mockContent, ...uploadedContent];
+    return allContent.find(item => item.featured) || allContent[0];
   };
 
   const paginatedContent = () => {
