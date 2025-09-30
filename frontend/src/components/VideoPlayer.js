@@ -7,7 +7,25 @@ const VideoPlayer = ({ content, onClose }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [showControls, setShowControls] = useState(true);
+  const [selectedUrl, setSelectedUrl] = useState(null);
   const videoRef = useRef(null);
+  
+  // Get the video URL based on content type
+  const getVideoUrl = () => {
+    if (content.episodeData?.player_urls?.length > 0) {
+      // For episodes
+      return content.episodeData.player_urls[0];
+    } else if (content.originalData?.seasons?.[0]?.episodes?.[0]?.player_urls?.length > 0) {
+      // For series - play first episode
+      return content.originalData.seasons[0].episodes[0].player_urls[0];
+    } else if (content.originalData?.player_urls?.length > 0) {
+      // For movies with direct player URLs
+      return content.originalData.player_urls[0];
+    }
+    return null;
+  };
+
+  const videoUrl = selectedUrl || getVideoUrl();
 
   const togglePlay = () => {
     setIsPlaying(!isPlaying);
