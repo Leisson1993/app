@@ -6,6 +6,7 @@ import ContentCard from './ContentCard';
 import FeaturedContent from './FeaturedContent';
 import VideoPlayer from './VideoPlayer';
 import UploadModal from './UploadModal';
+import ContentDetails from './ContentDetails';
 import { mockContent, getUserFavorites } from '../data/mockData';
 import { Input } from './ui/input';
 import { Button } from './ui/button';
