@@ -35,7 +35,8 @@ const Dashboard = () => {
   }, [user, isLoading, navigate]);
 
   const filteredContent = () => {
-    let content = mockContent;
+    // Combine mock content with uploaded content
+    let content = [...mockContent, ...uploadedContent];
     
     if (activeCategory === 'filmes') {
       content = content.filter(item => item.type === 'Filme');
