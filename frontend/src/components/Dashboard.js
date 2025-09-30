@@ -23,6 +23,8 @@ const Dashboard = () => {
   const [showUpload, setShowUpload] = useState(false);
   const [favorites, setFavorites] = useState([]);
   const [uploadedContent, setUploadedContent] = useState([]);
+  const [showDetails, setShowDetails] = useState(false);
+  const [selectedContent, setSelectedContent] = useState(null);
   
   const itemsPerPage = 8;
 
