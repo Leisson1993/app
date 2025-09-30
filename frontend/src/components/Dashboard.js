@@ -110,15 +110,32 @@ const Dashboard = () => {
   }
 
   const handleUploadSuccess = (newContent) => {
-    // Add IDs and default images to uploaded content
-    const processedContent = newContent.map((item, index) => ({
-      ...item,
-      id: Date.now() + index,
-      image: item.image || `https://images.unsplash.com/photo-${1500000000000 + Math.random() * 100000000}?w=300&h=450&fit=crop`,
-      rating: item.rating || (Math.random() * 4 + 6).toFixed(1),
-      synopsis: item.synopsis || `Assista ${item.title} (${item.year}) online.`,
-      featured: false
-    }));
+    // Process new format content
+    const processedContent = newContent.map((item) => {
+      // Determine type from genre or details
+      let type = 'Filme';
+      if (item.details?.seasons_count && item.details.seasons_count !== '1') {
+        type = 'Série';
+      } else if (item.seasons && item.seasons.length > 0) {
+        type = 'Série';
+      } else if (item.genres?.some(g => g.toLowerCase().includes('anime'))) {
+        type = 'Anime';
+      }
+
+      return {
+        id: item.id,
+        title: item.title,
+        year: item.release || item.details?.year || new Date().getFullYear(),
+        type: type,
+        genre: item.genres ? item.genres[0] : (item.genre || 'Drama'),
+        rating: parseFloat(item.imdb_rating || item.details?.imdb || (Math.random() * 4 + 6).toFixed(1)),
+        image: item.image || item.cover_url || `https://images.unsplash.com/photo-${1500000000000 + Math.random() * 100000000}?w=300&h=450&fit=crop`,
+        synopsis: item.synopsis || `Assista ${item.title} (${item.year}) online.`,
+        featured: false,
+        // Keep original data for detailed view
+        originalData: item
+      };
+    });
     
     setUploadedContent(prev => [...prev, ...processedContent]);
   };
