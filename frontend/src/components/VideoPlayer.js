@@ -28,8 +28,14 @@ const VideoPlayer = ({ content, onClose }) => {
   const videoUrl = selectedUrl || getVideoUrl();
 
   const togglePlay = () => {
+    if (videoRef.current && videoUrl) {
+      if (isPlaying) {
+        videoRef.current.pause();
+      } else {
+        videoRef.current.play().catch(console.log);
+      }
+    }
     setIsPlaying(!isPlaying);
-    // In a real app, this would control actual video playback
   };
 
   const formatTime = (seconds) => {
