@@ -39,19 +39,46 @@ const UploadModal = ({ onClose, onUploadSuccess }) => {
     setIsUploading(true);
 
     try {
-      // Mock upload process
+      // Read and parse JSON file
+      const fileContent = await new Promise((resolve) => {
+        const reader = new FileReader();
+        reader.onload = (e) => resolve(e.target.result);
+        reader.readAsText(selectedFile);
+      });
+
+      const newContent = JSON.parse(fileContent);
+      
+      // Validate JSON structure
+      if (!Array.isArray(newContent)) {
+        throw new Error("JSON deve ser um array de conteúdos");
+      }
+
+      // Validate required fields
+      for (const item of newContent) {
+        if (!item.title || !item.year || !item.type || !item.genre) {
+          throw new Error("Campos obrigatórios faltando: title, year, type, genre");
+        }
+      }
+
+      // Mock upload process delay
       await new Promise(resolve => setTimeout(resolve, 2000));
+      
+      // Call success callback with new content
+      if (onUploadSuccess) {
+        onUploadSuccess(newContent);
+      }
       
       toast({
         title: "Sucesso",
-        description: "Arquivo JSON carregado com sucesso!",
+        description: `${newContent.length} itens importados com sucesso!`,
       });
       
       onClose();
     } catch (error) {
+      console.error('Upload error:', error);
       toast({
         title: "Erro",
-        description: "Falha ao carregar o arquivo. Tente novamente.",
+        description: error.message || "Falha ao carregar o arquivo. Verifique o formato JSON.",
         variant: "destructive"
       });
     } finally {
