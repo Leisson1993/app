@@ -6,7 +6,7 @@ import { Label } from './ui/label';
 import { X, Upload, FileJson } from 'lucide-react';
 import { useToast } from '../hooks/use-toast';
 
-const UploadModal = ({ onClose }) => {
+const UploadModal = ({ onClose, onUploadSuccess }) => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [isUploading, setIsUploading] = useState(false);
   const { toast } = useToast();
