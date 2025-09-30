@@ -2,9 +2,9 @@ import React from 'react';
 import { Button } from './ui/button';
 import { Card, CardContent } from './ui/card';
 import { Badge } from './ui/badge';
-import { Play, Heart, Share2, Star } from 'lucide-react';
+import { Play, Heart, Share2, Star, Info } from 'lucide-react';
 
-const ContentCard = ({ content, onWatch, isFavorite, onFavorite }) => {
+const ContentCard = ({ content, onWatch, isFavorite, onFavorite, onShowDetails }) => {
   const handleWatch = () => {
     onWatch(content);
   };
