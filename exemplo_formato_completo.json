@@ -1,0 +1,136 @@
+[
+  {
+    "id": "15083",
+    "title": "Pecados Inconfessáveis",
+    "slug": "pecados-inconfessveis",
+    "genre": "NETFLIX",
+    "image": "https://cdn.syncdev.com.br//uploads/video_thumb/15083.jpg",
+    "release": "2025",
+    "time": "1 Temporadas",
+    "imdb_rating": "6.696",
+    "details": {
+      "seasons_count": "1 Temporadas",
+      "year": "2025",
+      "classification": "18",
+      "quality": "HD",
+      "imdb": "6.696",
+      "views": "7,469"
+    },
+    "synopsis": "Presa em um casamento abusivo, uma mulher encontra consolo em um caso com um homem mais jovem. Mas a paixão logo vira um jogo perigoso de sobrevivência.",
+    "genres": [
+      "NETFLIX",
+      "Drama"
+    ],
+    "cover_url": "https://cdn.syncdev.com.br//uploads/poster_image/15083.jpg",
+    "seasons": [
+      {
+        "season_name": "Temporada 1",
+        "episodes": [
+          {
+            "episode_number": "1",
+            "title": "Episódio 1x1",
+            "player_urls": [
+              "https://example.com/episode1.mp4"
+            ]
+          },
+          {
+            "episode_number": "2",
+            "title": "Episódio 1x2",
+            "player_urls": [
+              "https://example.com/episode2.mp4"
+            ]
+          },
+          {
+            "episode_number": "3",
+            "title": "Episódio 1x3",
+            "player_urls": [
+              "https://example.com/episode3.mp4"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "15084",
+    "title": "Vingadores: Ultimato",
+    "slug": "vingadores-ultimato",
+    "genre": "Marvel",
+    "image": "https://images.unsplash.com/photo-1635805737707-575885ab0820?w=300&h=450&fit=crop",
+    "release": "2019",
+    "time": "3h 1min",
+    "imdb_rating": "8.4",
+    "details": {
+      "year": "2019",
+      "classification": "12",
+      "quality": "4K",
+      "imdb": "8.4",
+      "views": "152,341"
+    },
+    "synopsis": "Após os eventos devastadores de Vingadores: Guerra Infinita, o universo está em ruínas. Com a ajuda de aliados remanescentes, os Vingadores se reúnem mais uma vez para desfazer as ações de Thanos e restaurar a ordem no universo.",
+    "genres": [
+      "Ação",
+      "Aventura",
+      "Ficção Científica"
+    ],
+    "cover_url": "https://images.unsplash.com/photo-1635805737707-575885ab0820?w=500&h=750&fit=crop"
+  },
+  {
+    "id": "15085", 
+    "title": "Breaking Bad",
+    "slug": "breaking-bad",
+    "genre": "Crime",
+    "image": "https://images.unsplash.com/photo-1489599735046-050143d5d636?w=300&h=450&fit=crop",
+    "release": "2008",
+    "time": "5 Temporadas",
+    "imdb_rating": "9.5",
+    "details": {
+      "seasons_count": "5 Temporadas",
+      "year": "2008-2013",
+      "classification": "16",
+      "quality": "HD",
+      "imdb": "9.5",
+      "views": "892,156"
+    },
+    "synopsis": "Um professor de química do ensino médio diagnosticado com câncer de pulmão inoperável se torna um fabricante de metanfetamina para garantir o futuro financeiro de sua família.",
+    "genres": [
+      "Crime",
+      "Drama",
+      "Thriller"
+    ],
+    "cover_url": "https://images.unsplash.com/photo-1489599735046-050143d5d636?w=500&h=750&fit=crop",
+    "seasons": [
+      {
+        "season_name": "Temporada 1",
+        "episodes": [
+          {
+            "episode_number": "1",
+            "title": "Pilot",
+            "player_urls": [
+              "https://example.com/breaking-bad-s01e01.mp4"
+            ]
+          },
+          {
+            "episode_number": "2", 
+            "title": "Cat's in the Bag...",
+            "player_urls": [
+              "https://example.com/breaking-bad-s01e02.mp4"
+            ]
+          }
+        ]
+      },
+      {
+        "season_name": "Temporada 2",
+        "episodes": [
+          {
+            "episode_number": "1",
+            "title": "Seven Thirty-Seven",
+            "player_urls": [
+              "https://example.com/breaking-bad-s02e01.mp4"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
