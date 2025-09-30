@@ -13,6 +13,12 @@ const ContentCard = ({ content, onWatch, isFavorite, onFavorite, onShowDetails }
     onFavorite(content.id);
   };
 
+  const handleShowDetails = () => {
+    if (onShowDetails) {
+      onShowDetails(content);
+    }
+  };
+
   return (
     <Card className="bg-gray-900 border-gray-800 overflow-hidden group hover:border-green-500/50 transition-all duration-300 hover:scale-105">
       <div className="relative">
