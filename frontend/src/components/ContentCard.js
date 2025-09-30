@@ -99,6 +99,16 @@ const ContentCard = ({ content, onWatch, isFavorite, onFavorite, onShowDetails }
             </Button>
             
             <Button
+              onClick={handleShowDetails}
+              size="sm"
+              variant="ghost"
+              className="p-1 h-8 w-8 text-gray-400 hover:text-white"
+              title="Mais Info"
+            >
+              <Info className="w-4 h-4" />
+            </Button>
+            
+            <Button
               size="sm"
               variant="ghost"
               className="p-1 h-8 w-8 text-gray-400 hover:text-white"
