@@ -55,6 +55,18 @@ const ContentCard = ({ content, onWatch, isFavorite, onFavorite }) => {
           </Badge>
         </div>
 
+        {/* Show additional info if available from original data */}
+        {content.originalData?.details && (
+          <div className="text-xs text-gray-500">
+            {content.originalData.details.quality && (
+              <span className="mr-2">{content.originalData.details.quality}</span>
+            )}
+            {content.originalData.details.views && (
+              <span>{content.originalData.details.views} views</span>
+            )}
+          </div>
+        )}
+
         {/* Action Buttons */}
         <div className="flex items-center justify-between pt-2">
           <Button
