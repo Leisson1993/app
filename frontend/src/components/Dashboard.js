@@ -92,6 +92,11 @@ const Dashboard = () => {
     );
   };
 
+  const handleShowDetails = (content) => {
+    setSelectedContent(content);
+    setShowDetails(true);
+  };
+
   const handleCategoryChange = (category) => {
     setActiveCategory(category);
     setCurrentPage(1);
