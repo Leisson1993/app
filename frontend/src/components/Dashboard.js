@@ -21,6 +21,7 @@ const Dashboard = () => {
   const [currentVideo, setCurrentVideo] = useState(null);
   const [showUpload, setShowUpload] = useState(false);
   const [favorites, setFavorites] = useState([]);
+  const [uploadedContent, setUploadedContent] = useState([]);
   
   const itemsPerPage = 8;
 
