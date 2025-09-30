@@ -53,10 +53,10 @@ const UploadModal = ({ onClose, onUploadSuccess }) => {
         throw new Error("JSON deve ser um array de conteúdos");
       }
 
-      // Validate required fields
+      // Validate required fields for new format
       for (const item of newContent) {
-        if (!item.title || !item.year || !item.type || !item.genre) {
-          throw new Error("Campos obrigatórios faltando: title, year, type, genre");
+        if (!item.title || !item.id) {
+          throw new Error("Campos obrigatórios faltando: title, id");
         }
       }
 
