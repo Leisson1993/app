@@ -301,6 +301,20 @@ const Dashboard = () => {
           onUploadSuccess={handleUploadSuccess}
         />
       )}
+
+      {/* Content Details Modal */}
+      {showDetails && selectedContent && (
+        <ContentDetails
+          content={selectedContent}
+          onClose={() => {
+            setShowDetails(false);
+            setSelectedContent(null);
+          }}
+          onWatch={handleWatch}
+          onFavorite={handleFavorite}
+          isFavorite={favorites.includes(selectedContent.id)}
+        />
+      )}
     </div>
   );
 };
