@@ -59,7 +59,8 @@ const Dashboard = () => {
   };
 
   const getFavoriteContent = () => {
-    return mockContent.filter(item => favorites.includes(item.id));
+    const allContent = [...mockContent, ...uploadedContent];
+    return allContent.filter(item => favorites.includes(item.id));
   };
 
   const getFeaturedContent = () => {
