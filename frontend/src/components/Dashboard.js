@@ -223,6 +223,7 @@ const Dashboard = () => {
                 onWatch={handleWatch}
                 isFavorite={favorites.includes(content.id)}
                 onFavorite={handleFavorite}
+                onShowDetails={handleShowDetails}
               />
             ))}
           </div>
